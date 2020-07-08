@@ -8,12 +8,12 @@ Table of contents
   - [Prerequisites](#prerequisites)
   - [Getting started](#getting-started)
   - [Building and running in production mode](#building-and-running-in-production-mode)
-- [Read](#read)
+  - [Acknowledgments](#acknowledgments)
 - [Create](#create)
+- [Read](#read)
 - [Update](#update)
 - [Delete](#delete)
 - [Extras](#extras)
-- [Acknowledgments](#acknowledgments)
 
 # Introduction
 
@@ -78,14 +78,17 @@ To create an optimized version of the app:
 ```bash
 npm run build
 ```
- 
-# Read
-
+## Acknowledgments
+Special thanks to
+* [Rich Harris](https://github.com/Rich-Harris)
+* [Andrew Koltyakov](https://github.com/koltyakov)
 
 
 # Create 
 
-```
+ 
+# Read
+
 
 # Update
 
@@ -95,7 +98,3 @@ npm run build
 
 
 
-# Acknowledgments
-Special thanks to
-* [Rich Harris](https://github.com/Rich-Harris)
-* [Andrew Koltyakov](https://github.com/koltyakov)

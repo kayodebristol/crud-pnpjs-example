@@ -36,31 +36,35 @@ export let getData = async (config)=>{
 
 }
 
-export let addNewRecord = async ()=>{
+export const formatItem = (rawData)=>{
+    return {
+        Title: `${rawData.resource} ${rawData.category} ${rawData.description.slice(0, 25)}`,
+        Category: rawData.category,
+        Affected_x0020_Resource: rawData.affectedResource,
+        Priority: rawData.priority,
+        Status: rawData.status,
+        Top_x0020_Level_x0020_Site: rawData.webApp,
+        Navigation_x0020_Element: rawData.navLocation,
+        Site_x0020_Name: rawData.siteName,
+        Site_x0020_URL: rawData.siteUrl,
+        POCId: rawData.POC,
+        EngineerId: rawData.engineer,
+        Section: rawData.section,
+        Unit: rawData.unit,
+        Location: rawData.location,
+        Engineers_x0020_Log: rawData.engineersLog,
+        POC_x0020_Phone: rawData.POCPhone,
+        Description: rawData.description,
+        New_x0020_Site_x0020_Name: rawData.newSiteName, 
+        Content_x0020_ManagersId: rawData.contentManagers,
+
+    }
+}
+
+export let addNewRecord = async (form)=>{
      // Create
 
-    await sp.web.lists.getByTitle('Trouble-Ticket').items.add({
-        Title: `${affectedResource} ${category} ${description.slice(0, 25)}`,
-        Category: category,
-        Affected_x0020_Resource: affectedResource,
-        Priority: priority,
-        Status: status,
-        Top_x0020_Level_x0020_Site: webApp,
-        Navigation_x0020_Element: navLocation,
-        Site_x0020_Name: siteName,
-        Site_x0020_URL: siteUrl,
-        POCId: POC,
-        EngineerId: engineer,
-        Section: section,
-        Unit: unit,
-        Location: location,
-        Engineers_x0020_Log: engineersLog,
-        POC_x0020_Phone: POCPhone,
-        Description: description,
-        New_x0020_Site_x0020_Name: newSiteName, 
-        Content_x0020_ManagersId: contentManagers,
-
-    })
+    await sp.web.lists.getByTitle('Trouble-Ticket').items.add(item)
     .then((iar) => {
         let attachments = this.file.attachment.slice(); 
         if (attachments.length > 0) {
