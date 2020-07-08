@@ -1,15 +1,34 @@
-# sp-svelte app
-Opinionated SharePoint starter template for [sveltejs](https://github.com/sveltejs) client-side Javascript development.
-This project uses [sveltejs](https://github.com/sveltejs), [rollup](https://github.com/rollup), [sp-rest-proxy](https://github.com/koltyakov/sp-rest-proxy), [@pnp/sp](https://pnp.github.io/pnpjs/sp/), and [babel](https://github.com/babel/babel), among other packages.
+# SharePoint CRUD (Create, Read, Update, Delete)  with Pnpjs
+Table of contents
+- [SharePoint CRUD (Create, Read, Update, Delete)  with Pnpjs](#sharepoint-crud-create-read-update-delete-with-pnpjs)
+- [Introduction](#introduction)
+- [PnPjs](#pnpjs)
+- [Starter Kit](#starter-kit)
+- [Example Repo crud-pnpjs-example](#example-repo-crud-pnpjs-example)
+  - [Prerequisites](#prerequisites)
+  - [Getting started](#getting-started)
+  - [Building and running in production mode](#building-and-running-in-production-mode)
+- [Read](#read)
+- [Create](#create)
+- [Update](#update)
+- [Delete](#delete)
+- [Extras](#extras)
+- [Acknowledgments](#acknowledgments)
 
-Although your code will work with most modern browsers, the project was designed specifically to work on IE 10, as SharePoint's default masterpage still targets IE 10 with a meta tag.  
+# Introduction
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sp-sveltejs/template.
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+# [PnPjs](https://pnp.github.io/pnpjs/)
+
+
+# Starter Kit
+
+- [sp-sveltejs/template](https://github.com/sp-sveltejs)
+
+# Example Repo [crud-pnpjs-example](https://github.com/kayodebristol/crud-pnpjs-example)
 
 ```bash
-npx degit sp-sveltejs/template sp-svelte-app
+npx degit kayodebristol/crud-pnpjs-example [your-app-name]
 cd sp-svelte-app
 ```
 
@@ -30,7 +49,7 @@ The generated project will work with SharePoint 2013, SharePoint 2016, SharePoin
 Install the dependencies...
 
 ```bash
-cd sp-svelte-app
+cd [your-app-name]
 npm install
 ```
 
@@ -59,8 +78,24 @@ To create an optimized version of the app:
 ```bash
 npm run build
 ```
+ 
+# Read
 
-## Acknowledgments
+
+
+# Create 
+
+```
+
+# Update
+
+# Delete
+
+# Extras 
+
+
+
+# Acknowledgments
 Special thanks to
 * [Rich Harris](https://github.com/Rich-Harris)
 * [Andrew Koltyakov](https://github.com/koltyakov)
