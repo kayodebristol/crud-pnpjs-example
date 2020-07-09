@@ -35,7 +35,7 @@ export const getData = async (config)=>{
 
 const formatItem = (rawData)=>{
     return {
-        Title: `${rawData.description.slice(0, 25)}`,
+        Title: `${rawData.title.slice(0, 25)}`,
         
     }; 
 }; 

@@ -37,12 +37,13 @@
 	{/await}
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 </main>
+
 <form>
-<label for='description'>Description:</label>
+<label for='title'>title:</label>
 <input
 	type='text'
-	name='description'
-	dind:value={item.description}
+	name='title'
+	dind:value={item.title}
 	use:bindClass={{ form: ticket}}
 />
 <button on:click|preventDefault={addRecord}>submit</button>
