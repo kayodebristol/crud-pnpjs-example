@@ -52,30 +52,40 @@
 	on:change={handleChange}
 	
 />
-<label for='areaCode'>areaCode:</label>
-<input
-	id="areaCode"
-	type='text'
-	name='areaCode'
-	bind:value={$form.areaCode}
-	on:change={handleChange}
-/>
-<label for='prefix'>prefix:</label>
-<input
-	id="prefix"
-	type='text'
-	name='prefix'
-	bind:value={$form.prefix}
-	on:change={handleChange}
-/>
-<label for='number'>number:</label>
-<input
-	id="number"
-	type='text'
-	name='number'
-	bind:value={$form.number}
-	on:change={handleChange}
-/>
+<div class="phoneNumber">
+	<div class="areaCode" >
+	<label for='areaCode'>Area Code:</label>
+	<input
+		id="areaCode"
+		type='text'
+		name='areaCode'
+		bind:value={$form.areaCode}
+		on:change={handleChange}
+		size="3"
+	/>
+	</div>
+	<div>
+	<label for='prefix'>prefix:</label>
+	<input
+		id="prefix"
+		type='text'
+		name='prefix'
+		bind:value={$form.prefix}
+		on:change={handleChange}
+		size="3"
+	/></div>
+	<div>
+		<label for='number'>number:</label>
+		<input
+			id="number"
+			type='text'
+			name='number'
+			bind:value={$form.number}
+			on:change={handleChange}
+			size="4"
+		/>
+	</div>
+</div>
 <br>
 {#if $form.areaCode}       
 <p>{`(${$form.areaCode}) ${$form.prefix}-${$form.number}`}</p>
@@ -97,6 +107,22 @@
 		font-size: 4em;
 		font-weight: 100;
 	}
+	.phoneNumber{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-content: flex-start;
+		margin-right: 20px;
+		padding-right: 20px;
+
+
+	}
+	.areaCode{
+		margin-right: 10px;
+		/*padding-right: 20px;*/
+
+	}
+	
 
 	@media (min-width: 640px) {
 		main {
