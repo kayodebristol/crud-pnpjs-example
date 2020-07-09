@@ -1,14 +1,29 @@
 <script>
-	import {config} from './config';
-	import {getData} from './getData';
+	
+	import {getData, addNewRecord} from './crud';
 	import {onMount} from 'svelte'; 
+	import {form, bindClass} from 'svelte-forms'; 
+	
 	
 	let data = []; 
 
+	
+
 	//Uses the sveltejs lifecycle event to get data on application mount
 	onMount(async()=>{
-		data = getData(config); 
+		data = getData(); 
 	})
+	let item ={
+
+	 title: '', category: '', affectedResource: '', priority: '', status: '', webApp: '', navLocation: '', siteName: '', siteUrl: '', POC: '', engineer: '', section: '', unit: '', location: '', engineersLog: '', POCPhone: '', description: '', newSiteName: '', contentManagers: ''}; 
+	const ticket = form(()=>({
+		description: {
+			value: item.description, 
+			validators: ['required']
+		}
+	}))
+
+	const addRecord = ()=> addNewRecord(item); 
 </script>
 
 <main>
@@ -22,7 +37,17 @@
 	{/await}
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 </main>
+<form>
+<label for='description'>Description:</label>
+<input
+	type='text'
+	name='description'
+	dind:value={item.description}
+	use:bindClass={{ form: ticket}}
+/>
+<button on:click|preventDefault={addRecord}>submit</button>
 
+</form>
 <style>
 	main {
 		text-align: center;
