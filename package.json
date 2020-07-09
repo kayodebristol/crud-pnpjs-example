@@ -1,5 +1,5 @@
 {
-  "name": "sp-svelte-app",
+  "name": "crud-pnpjs-example",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
@@ -37,6 +37,7 @@
     "moment": "^2.24.0",
     "office-ui-fabric-svelte": "0.0.3",
     "sirv-cli": "^0.4.4",
+    "svelte-forms-lib": "^1.1.1",
     "whatwg-fetch": "^3.0.0"
   }
 }

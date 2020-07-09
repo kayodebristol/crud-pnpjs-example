@@ -2,8 +2,7 @@
 	
 	import {getData, addNewRecord} from './crud';
 	import {onMount} from 'svelte'; 
-	import {form, bindClass} from 'svelte-forms'; 
-	
+	import { createForm } from "svelte-forms-lib";
 	
 	let data = []; 
 
@@ -13,17 +12,22 @@
 	onMount(async()=>{
 		data = getData(); 
 	})
-	let item ={
 
-	 title: '', category: '', affectedResource: '', priority: '', status: '', webApp: '', navLocation: '', siteName: '', siteUrl: '', POC: '', engineer: '', section: '', unit: '', location: '', engineersLog: '', POCPhone: '', description: '', newSiteName: '', contentManagers: ''}; 
-	const ticket = form(()=>({
-		description: {
-			value: item.description, 
-			validators: ['required']
-		}
-	}))
+	const { form, handleChange, handleSubmit} = createForm({
+		initialValues:{
+			title: "", 
+			areaCode: "", 
+			prefix: "",
+			number: ""
+		},
+		onSubmit: values =>{
+			alert(JSON.stringify(values));
+			addNewRecord(values); 
+		}, 
 
-	const addRecord = ()=> addNewRecord(item); 
+	})
+
+	
 </script>
 
 <main>
@@ -38,15 +42,45 @@
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 </main>
 
-<form>
+<form on:submit={handleSubmit}>
 <label for='title'>title:</label>
 <input
+	id="title"
 	type='text'
 	name='title'
-	dind:value={item.title}
-	use:bindClass={{ form: ticket}}
+	bind:value={$form.title}
+	on:change={handleChange}
+	
 />
-<button on:click|preventDefault={addRecord}>submit</button>
+<label for='areaCode'>areaCode:</label>
+<input
+	id="areaCode"
+	type='text'
+	name='areaCode'
+	bind:value={$form.areaCode}
+	on:change={handleChange}
+/>
+<label for='prefix'>prefix:</label>
+<input
+	id="prefix"
+	type='text'
+	name='prefix'
+	bind:value={$form.prefix}
+	on:change={handleChange}
+/>
+<label for='number'>number:</label>
+<input
+	id="number"
+	type='text'
+	name='number'
+	bind:value={$form.number}
+	on:change={handleChange}
+/>
+<br>
+{#if $form.areaCode}       
+<p>{`(${$form.areaCode}) ${$form.prefix}-${$form.number}`}</p>
+{/if}
+<button type="submit" >submit</button>
 
 </form>
 <style>

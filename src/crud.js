@@ -4,18 +4,17 @@ import { sp } from "@pnp/sp";
 import Logger from 'js-logger';
 import {config} from './config';
 
-Logger.useDefaults(); 
-
 (window).global = window;
 if (global === undefined) {
     var global = window;
-}		
+}
+
 sp.setup({
     sp: {
         ie11: true,
-        defaultCachingStore: "local", // or "local"
+        defaultCachingStore: "local",
         defaultCachingTimeoutSeconds: 360,
-        globalCacheDisable: false, // or true to disable caching in case of debugging/testing
+        globalCacheDisable: true, // or true to disable caching in case of debugging/testing
         headers: {
             Accept: "application/json;odata=verbose",
         },
@@ -28,7 +27,7 @@ export const getData = async (config)=>{
     const today = new Date().toISOString(); 
         //PnPjs fetch example
     let data = await sp.web.select("Title", "Description").get();
-    
+    console.log(data); 
     return data; 
 
 };
@@ -36,16 +35,20 @@ export const getData = async (config)=>{
 const formatItem = (rawData)=>{
     return {
         Title: `${rawData.title.slice(0, 25)}`,
+        POC_x0020_Phone_x0020_No_x002e_: `(${rawData.areaCode}) ${rawData.prefix}-${rawData.number}`
+        
         
     }; 
 }; 
 
 export const addNewRecord = async (form)=>{
      // Create
-    console.log(form);
+    //console.log(form);
     let item = formatItem(form); 
     await sp.web.lists.getByTitle('TroubleTicket').items.add(item)
-    .then((iar) => {
+
+
+    /*.then((iar) => {
         let attachments = form.file.attachment.slice(); 
         if (attachments.length > 0) {
             for (var j = 0; j < attachments.length; j++) {
@@ -63,7 +66,7 @@ export const addNewRecord = async (form)=>{
 
         }
         return iar;
-    })
+    })*/
     .then((iar)=>{
         url1 = '//arylether.sharepoint.com/sites/sandbox/Lists/Trouble-Ticket/DispForm.aspx?ID=';
         url2 = '&Source=http%3A%2F%2Farylether%2Esharepoint%2Ecom%2sites%2Esandbox%2ELists%2FTrouble-Ticket%2FAll%2520Items%2Easpx&ContentTypeId=0x01005EC21FC29FB2CD4E851AF576EB8BB710';
