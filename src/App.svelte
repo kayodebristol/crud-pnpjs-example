@@ -54,26 +54,27 @@
 />
 <div class="phoneNumber">
 	<div class="areaCode" >
-	<label for='areaCode'>Area Code:</label>
-	<input
-		id="areaCode"
-		type='text'
-		name='areaCode'
-		bind:value={$form.areaCode}
-		on:change={handleChange}
-		size="3"
-	/>
+		<label for='areaCode'>Area Code:</label>
+		<input
+			id="areaCode"
+			type='text'
+			name='areaCode'
+			bind:value={$form.areaCode}
+			on:change={handleChange}
+			size="3"
+		/>
 	</div>
 	<div>
-	<label for='prefix'>prefix:</label>
-	<input
-		id="prefix"
-		type='text'
-		name='prefix'
-		bind:value={$form.prefix}
-		on:change={handleChange}
-		size="3"
-	/></div>
+		<label for='prefix'>prefix:</label>
+		<input
+			id="prefix"
+			type='text'
+			name='prefix'
+			bind:value={$form.prefix}
+			on:change={handleChange}
+			size="3"
+		/>
+	</div>
 	<div>
 		<label for='number'>number:</label>
 		<input
@@ -114,8 +115,6 @@
 		align-content: flex-start;
 		margin-right: 20px;
 		padding-right: 20px;
-
-
 	}
 	.areaCode{
 		margin-right: 10px;
