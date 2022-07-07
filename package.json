@@ -34,7 +34,7 @@
     "core-js": "^3.6.5",
     "es6-promise": "^4.2.8",
     "js-logger": "^1.6.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "office-ui-fabric-svelte": "0.0.3",
     "sirv-cli": "^1.0.6",
     "svelte-forms-lib": "^1.2.2",
